@@ -1,0 +1,46 @@
+﻿@model List<InstructorModel>
+
+<head>
+    <title>Instructors</title>
+</head>
+
+<div class="text-center">
+    <h2>Instructors List</h2>
+</div>
+
+<main class="mt-1 pt-3">
+    <div class="container">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Contact No</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var instructor in Model)
+                {
+                    <tr>
+                        <th scope="row">@instructor.InstructorId</th>
+                        <td>@instructor.InstructorName</td>
+                        <td>@instructor.InstructorCountry</td>
+                        <td>@instructor.ContactNo</td>
+                        <td>@instructor.Email</td>
+                        <td>@instructor.CourseId</td>
+                        <td>
+                            <a asp-action="EditInstructor" asp-route-id="@instructor.InstructorId" class="btn btn-warning">Edit</a>
+                            <a asp-action="DeleteInstructor" asp-route-id="@instructor.InstructorId" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</main>

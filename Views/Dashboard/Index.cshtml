@@ -1,0 +1,140 @@
+﻿<!-- Views/Dashboard/Index.cshtml -->
+@model OracleSampleProject.Models.DashboardModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<!-- Add this line to include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+    /* Custom styles for the cards */
+    .dashboard-card {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Color classes for different cards */
+    .total-students-card {
+        background-color: #3498db; /* Blue color */
+        color: #fff; /* White text */
+    }
+
+    .total-courses-card {
+        background-color: #27ae60; /* Green color */
+        color: #fff; /* White text */
+    }
+
+    .total-instructors-card {
+        background-color: #f39c12; /* Orange color */
+        color: #fff; /* White text */
+    }
+
+    .total-completed-lessons-card {
+        background-color: #e74c3c; /* Red color */
+        color: #fff; /* White text */
+    }
+    /* Style for the chart container */
+    .chart-container {
+        width: 100%;
+        max-width: 800px; /* Adjust the max-width as needed */
+        margin: 20px auto;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Dashboard</h1>
+    <p>Summary of E-Learning Platform</p>
+</div>
+
+<!-- Main layout -->
+<main class="mt-1 pt-3">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card dashboard-card total-students-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Students</h5>
+                        <p class="card-text">@Model.TotalStudents</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card dashboard-card total-courses-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Courses</h5>
+                        <p class="card-text">@Model.TotalCourses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card dashboard-card total-instructors-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Instructors</h5>
+                        <p class="card-text">@Model.TotalInstructors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card dashboard-card total-completed-lessons-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Completed Lessons</h5>
+                        <p class="card-text">@Model.TotalCompletedLessons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End of class container-->
+    <!-- Chart container -->
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        // JavaScript code for initializing and configuring the chart
+        document.addEventListener("DOMContentLoaded", function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Students', 'Total Courses', 'Total Instructors', 'Total Completed Lessons'],
+                    datasets: [{
+                        label: 'Count',
+                        data: [@Model.TotalStudents, @Model.TotalCourses, @Model.TotalInstructors, @Model.TotalCompletedLessons],
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.7)', // Blue
+                            'rgba(39, 174, 96, 0.7)', // Green
+                            'rgba(243, 156, 18, 0.7)', // Orange
+                            'rgba(231, 76, 60, 0.7)'  // Red
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(39, 174, 96, 1)',
+                            'rgba(243, 156, 18, 1)',
+                            'rgba(231, 76, 60, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</main>
+<!--End of Main layout-->

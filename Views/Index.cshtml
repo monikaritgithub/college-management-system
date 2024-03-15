@@ -1,0 +1,58 @@
+﻿<!-- Views/Dashboard/Index.cshtml -->
+@model OracleSampleProject.Models.DashboardModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Dashboard</h1>
+    <p>Summary of E-Learning Platform</p>
+</div>
+
+<!-- Main layout -->
+<main class="mt-1 pt-3">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Students</h5>
+                        <p class="card-text">@Model.TotalStudents</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Courses</h5>
+                        <p class="card-text">@Model.TotalCourses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Instructors</h5>
+                        <p class="card-text">@Model.TotalInstructors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Completed Lessons</h5>
+                        <p class="card-text">@Model.TotalCompletedLessons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End of class container-->
+</main>
+<!--End of Main layout-->

@@ -1,0 +1,141 @@
+﻿@model OracleSampleProject.Models.StudentModel
+@{
+    ViewData["Title"] = "Home Page";
+    ViewData["text"] = ViewBag.Message;
+}
+
+<script>
+    // Hide alert after 3 seconds
+    //setTimeout(function(){
+      //document.getElementById("alert").style.display = "none";
+    //}, 3000);
+
+
+    function hidealert() {
+        // Your existing code to hide the alert
+        setTimeout(function () {
+            document.getElementById("alert").style.display = "none";
+        }, 3000);
+
+        // Submit the form
+        document.forms[0].submit(); // Assuming this is the first form on the page
+    }
+
+
+    // Function to set the value of the student ID input field
+    function setStudentIdValue() {
+        // Assuming you have a variable 'lastId' with the last ID value from the server
+        var lastId = @Model.ID; // Replace this with the actual value
+
+        // Calculate the new ID (ID + 1)
+        var newId = lastId + 1;
+
+        // Set the value of the input field
+        document.getElementById("studentIdInput").value = newId;
+    }
+
+    // Call the function to set the initial value
+    setStudentIdValue();
+</script>
+<div class="text-center">
+    <h1 class="display-4">
+        Welcome
+    </h1>
+    <p>
+        Enter a name in the form below.
+        <br> Clicking "Submit" will invoke a stored procedure that will add content to the Oracle database.
+    </p>
+</div>
+<!--Main layout-->
+<main class="mt-1 pt-3">
+    <div class="container">
+        <!-- Post Element -->
+        <div class="card mb-3 wow fadeIn">
+            <div class="card-header font-weight-bold">
+                Add some content
+            </div>
+            <div class="card-body">
+                <!-- Default form post -->
+                <form asp-action="AddStudent" asp-controller="Home" method="post">
+                    <!-- First Name -->
+                    <label for="replyFormID">
+                        ID
+                    </label>
+                    <input type="number" name="ID" class="form-control"  >
+                    <br><label for="replyFormName">
+                        Name
+                    </label>
+                    <input type="text" name="Name" class="form-control">
+                    <br>
+                    <label for="replyFormEmail">
+                        Email
+                    </label>
+                    <input type="email" name="Email" class="form-control">
+                    
+                    <br>
+                    <label for="replyFormContact">
+                        Contact
+                    </label>
+                    <input type="text" name="Contact" class="form-control">
+                    
+                    <br>
+                    <label for="replyFormDOB">
+                        DOB
+                    </label>
+                    <input type="date" name="Dob" class="form-control">
+                    <br>
+                    <label for="replyFormCountry">
+                       Country
+                    </label>
+                    <input type="text" name="Country" class="form-control">
+                    <br>
+                    <label for="replyFormECourse">
+                        ECourse
+                    </label>
+                    <input type="text" name="Ecourse" class="form-control">
+                    <br>
+                    <label for="replyFormEDate">
+                        EDate
+                    </label>
+                    <input type="date" name="Edate" class="form-control">
+                    <br>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button onclick="hidealert" class="btn btn-info btn-md" value="Submit" type="submit">
+                            Post
+                        </button>
+                    </div>
+                </form>
+                <!-- End of post form -->
+                <!-- Show submission status -->
+                <p id="alert">
+                    @ViewBag.Message
+                </p>
+            </div>
+        </div>
+        <!-- End of entire Post element -->
+        <!--Card-->
+        <div class="card mb-4 wow fadeIn">
+            <!--Card content-->
+            <div class="card-body text-center">
+                <p class="h5 my-4">
+                    Note:
+                </p>
+                <p>
+                    Go back to the home page once you've submitted some content.
+                </p>
+                <hr>
+                <a class="btn btn-outline-primary" asp-area="" asp-controller="Home" asp-action=""
+                   role="button">
+                    Back to Home
+                    <i class="fas fa-arrow-right ml-1">
+                    </i>
+                </a>
+            </div>
+        </div>
+        <!-- End of Card -->
+    </div>
+    <!-- End of Container -->
+</main>
+<!-- End of Main layout -->

@@ -1,0 +1,70 @@
+﻿@using OracleSampleProject.Models;
+
+@{
+    CourseModel courseData = ViewBag.courseData;
+}
+
+@{
+    ViewData["Title"] = "Courses Details";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>The table below shows content in the 'Courses' table.</p>
+</div>
+
+<!-- Main layout -->
+<main class="mt-1 pt-3">
+    <div class="container">
+
+        <table class="table">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course ID</th>
+                    <th scope="col">Course Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < @courseData.CourseList.Count; i++)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@courseData.CourseList[i].CourseId</td>
+                        <td>@courseData.CourseList[i].CourseTitle</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Jumbotron -->
+        <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+
+            <!-- Content -->
+            <div class="card-body text-white text-center py-3 px-3 my-3">
+
+                <h1 class="mb-4">
+                    <strong>Add Content</strong>
+                </h1>
+
+                <p class="mb-4">
+                    <strong>
+                        The table above should show the contents of the database. <br>
+                        Click on the button below to add content.
+                    </strong>
+                </p>
+                <a class="btn btn-outline-white btn-lg" asp-area="" asp-controller="Course" asp-action="AddCourse">
+                    Click me to add content!
+                </a>
+
+            </div>
+            <!-- End of Content -->
+
+        </section>
+        <!-- End of Jumbotron-->
+
+    </div>
+    <!-- End of class container-->
+</main>
+<!--End of Main layout-->

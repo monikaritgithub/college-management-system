@@ -1,0 +1,24 @@
+﻿@model OracleSampleProject.Models.CourseModel
+
+@{
+    ViewData["Title"] = "Edit Course";
+}
+
+<h1>Edit Course</h1>
+
+<form asp-action="EditCourse" method="post">
+    <div class="form-group">
+        <label asp-for="CourseId"></label>
+        <input asp-for="CourseId" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="CourseTitle"></label>
+        <input asp-for="CourseTitle" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+

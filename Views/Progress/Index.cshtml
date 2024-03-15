@@ -1,0 +1,79 @@
+﻿@model List<ProgressModel>
+
+<head>
+    <title>Show Progress</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px; /* Adjusted padding for all columns */
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .table-header {
+            margin-bottom: 15px; /* Adjusted margin for the table header */
+        }
+    </style>
+</head>
+
+<div class="text-center">
+    <h2>Progress Data</h2>
+</div>
+
+<main class="mt-1 pt-3">
+    <div class="container">
+        <div class="table-header">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Course ID</th>
+                        <th>Course Title</th>
+                        <th>Lesson No</th>
+                        <th>Lesson Title</th>
+                        <th>Lesson Status</th>
+                        <th>Last Accessed Date</th>
+                        <th>Course Instructor Name</th>
+                        <th>Action</th> <!-- Added column for actions -->
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <table border="1">
+            <tbody>
+                @foreach (var progress in Model)
+                {
+                    <tr>
+                        <td>
+                        <td>@progress.StudentName</td>
+                        <td>@progress.CourseId</td>
+                        <td>@progress.CourseTitle</td>
+                        <td>@progress.LessonNo</td>
+                        <td>@progress.LessonTitle</td>
+                        <td>@progress.LessonStatus</td>
+                        <td>@progress.LastAccessedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td>@progress.CourseInstructorName</td>
+                        <td>
+                            <!-- Add Edit and Delete buttons with appropriate URLs or JavaScript actions -->
+                            <a href="/EditProgress/@progress.CourseId">Edit</a> |
+                            <a href="/Delete/@progress.CourseId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>

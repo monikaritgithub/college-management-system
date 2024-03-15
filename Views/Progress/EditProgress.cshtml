@@ -1,0 +1,82 @@
+﻿@model OracleSampleProject.Models.ProgressModel
+
+<head>
+    <title>Edit Progress</title>
+    <!-- Include your stylesheets or other head content here -->
+</head>
+
+<div class="text-center">
+    <h2>Edit Progress</h2>
+</div>
+
+<main class="mt-1 pt-3">
+    <div class="container">
+        <form asp-action="EditProgress" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CourseId" />
+
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CourseTitle" class="control-label"></label>
+                <input asp-for="CourseTitle" class="form-control" />
+                <span asp-validation-for="CourseTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LessonNo" class="control-label"></label>
+                <input asp-for="LessonNo" class="form-control" />
+                <span asp-validation-for="LessonNo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LessonTitle" class="control-label"></label>
+                <input asp-for="LessonTitle" class="form-control" />
+                <span asp-validation-for="LessonTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LessonStatus" class="control-label"></label>
+                <input asp-for="LessonStatus" class="form-control" />
+                <span asp-validation-for="LessonStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastAccessedDate" class="control-label"></label>
+                <input asp-for="LastAccessedDate" class="form-control" />
+                <span asp-validation-for="LastAccessedDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CourseInstructorName" class="control-label"></label>
+                <input asp-for="CourseInstructorName" class="form-control" />
+                <span asp-validation-for="CourseInstructorName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="ShowProgress" class="btn btn-secondary">Back to Progress</a>
+                <a asp-action="DeleteProgress" asp-route-id="@Model.CourseId" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this progress?')">Delete</a>
+            </div>
+        </form>
+    </div>
+</main>
+//
+<form asp-action="EditProgress" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CourseId" />
+
+    <!-- Other input fields -->
+
+    <div class="form-group">
+        <label asp-for="CourseId" class="control-label"></label>
+        <input asp-for="CourseId" class="form-control" required />
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+
+    <!-- Submit and other buttons -->
+</form>

@@ -1,0 +1,45 @@
+﻿@model OracleSampleProject.Models.InstructorModel
+
+<h2>Add Instructor</h2>
+
+<form asp-action="AddInstructor">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="InstructorName">Instructor Name</label>
+        <input asp-for="InstructorName" class="form-control" />
+        <span asp-validation-for="InstructorName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InstructorCountry">Instructor Country</label>
+        <input asp-for="InstructorCountry" class="form-control" />
+        <span asp-validation-for="InstructorCountry" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContactNo">Instructor Contact No</label>
+        <input asp-for="ContactNo" class="form-control" />
+        <span asp-validation-for="ContactNo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CourseId">Course Id</label>
+        <input asp-for="CourseId" class="form-control" />
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Add Instructor" class="btn btn-primary" />
+    </div>
+</form>
+
+<p>
+    <a asp-action="Index">Back to List</a>
+</p>

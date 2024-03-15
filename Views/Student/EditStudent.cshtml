@@ -1,0 +1,43 @@
+﻿@model OracleSampleProject.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h1>Edit Student</h1>
+
+<form asp-action="EditStudent" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="ID" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Contact">Contact</label>
+        <input asp-for="Contact" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Dob">Date of Birth</label>
+        <input asp-for="Dob" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Country">Country</label>
+        <input asp-for="Country" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Ecourse">Ecourse</label>
+        <input asp-for="Ecourse" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Edate">Enrollment Date</label>
+        <input asp-for="Edate" class="form-control" type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

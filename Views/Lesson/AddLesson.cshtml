@@ -1,0 +1,34 @@
+﻿<!-- AddLesson.cshtml -->
+@model OracleSampleProject.Models.LessonModel
+
+@{
+    ViewData["Title"] = "Add Lesson";
+}
+
+<h1 class="display-4">Add Lesson</h1>
+
+<form method="post" asp-action="AddLesson">
+    <div class="form-group">
+        <label for="CourseId">Course Id:</label>
+        <input asp-for="CourseId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="LessonNo">Lesson Number:</label>
+        <input asp-for="LessonNo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="LessonTitle">Lesson Title:</label>
+        <input asp-for="LessonTitle" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Lesson</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-info mt-3">
+        @ViewBag.Message
+    </div>
+}

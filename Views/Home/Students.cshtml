@@ -1,0 +1,82 @@
+﻿@using OracleSampleProject.Models;
+
+@{
+    StudentModel Viewsqldata = ViewBag.sqldata;
+}
+
+@{
+    ViewData["Title"] = "Students Details";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p> The table below shows content in the 'Students' table. </p>
+</div>
+
+<!-- Main layout -->
+<main class="mt-1 pt-3">
+    <div class="container">
+
+        <table class="table">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Dob</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Ecourse</th>
+                    <th scope="col">Edate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < @Viewsqldata.StudentList.Count; i++)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td scope="row">@Viewsqldata.StudentList[i].ID</td>
+                        <td scope="row">@Viewsqldata.StudentList[i].Name</td>
+                        <td scope="row">@Viewsqldata.StudentList[i].Email</td>
+                        <td scope="row">@Viewsqldata.StudentList[i].Contact</td>
+                        <td scope="row">@Viewsqldata.StudentList[i].Dob</td>
+                        <td scope="row" >@Viewsqldata.StudentList[i].Country</td>
+                        <td scope="row">@Viewsqldata.StudentList[i].Ecourse</td>
+                        <td scope="row">@Viewsqldata.StudentList[i].Edate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Jumbotron -->
+        <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+
+            <!-- Content -->
+            <div class="card-body text-white text-center py-3 px-3 my-3">
+
+                <h1 class="mb-4">
+                    <strong>Add Content</strong>
+                </h1>
+
+                <p class="mb-4">
+                    <strong>
+                        The table above should show the contents of the database. <br>
+                        Click on the button below to add content.
+                    </strong>
+                </p>
+                <a class="btn btn-outline-white btn-lg" asp-area="" asp-controller="Home" asp-action="AddStudent">
+                    Click me to add content!
+                </a>
+
+            </div>
+            <!-- End of Content -->
+
+        </section>
+        <!-- End of Jumbotron-->
+
+    </div>
+    <!-- End of class container-->
+</main>
+<!--End of Main layout-->

@@ -1,0 +1,58 @@
+﻿@model OracleSampleProject.Models.ProgressModel
+
+@{
+    ViewData["Title"] = "Add Progress";
+}
+
+<h2>Add Progress</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-info" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<form asp-controller="Progress" asp-action="AddProgress" method="post">
+    <div class="form-group">
+        <label asp-for="StudentName">Student Name:</label>
+        <input asp-for="StudentName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CourseId">Course ID:</label>
+        <input asp-for="CourseId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CourseTitle">Course Title:</label>
+        <input asp-for="CourseTitle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LessonNo">Lesson Number:</label>
+        <input asp-for="LessonNo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LessonTitle">Lesson Title:</label>
+        <input asp-for="LessonTitle" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LessonStatus">Lesson Status:</label>
+        <input asp-for="LessonStatus" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastAccessedDate">Last Accessed Date:</label>
+        <input asp-for="LastAccessedDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CourseInstructorName">Course Instructor Name:</label>
+        <input asp-for="CourseInstructorName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
